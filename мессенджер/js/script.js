@@ -1,0 +1,1 @@
+const host '`http://api-messenger.web-srv.local`

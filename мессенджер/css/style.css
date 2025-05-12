@@ -7,6 +7,8 @@ body{
 .container {
     width: 100%;
 }
+
+/*Авторизация*/
 .section_1{
     display: flex;
 }
@@ -23,51 +25,110 @@ body{
     margin-top: 20px
 }
 
-.container {
-    background-color: aliceblue;
-    width: 50%;
-    height: 700px;
-    border-radius: 40px;
-    margin-left: 600px;
-    margin-top: 90px;
+
+
+.author-block {
+    width: 1300px;
+    height: 600px;
+    background-color: #ffff;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 130px;
 }
-.container h1 {
-    margin-left: 330px;
+
+.author-block h1 {
+    text-align: center;
     font-size: 40px;
-    margin-top: 90px;
-    position: absolute;
-}
-button{
-    margin-top: 230px;
-    width: 450px;
-    height: 75px;
-    border-radius: 40px;
-    font-size: 20px;
-    margin-left: 420px;
-    background-color: #ffdefd;
-    border: #fdd5fb;
-
-}
-.pup {
-    margin-top: 30px;
-    width: 450px;
-    height: 75px;
-    border-radius: 40px;
-    font-size: 20px;
-    margin-left: 420px;
-    background-color: #ffdefd;
-    border: #fdd5fb;
+    padding-top: 60px;
 }
 
-.pup_1 {
-    margin-top: 30px;
-    width: 90px;
-    height: 55px;
-    border-radius: 30px;
-    font-size: 20px;
+.author-block input {
+    margin-top: 20px;
+    width: 450px;
+    height: 63px;
+    border-radius: 40px;
+    font-size: 22px;
     margin-left: 420px;
-    background-color: hsl(330, 94%, 51%);
-    border: #f52273;
+    margin-bottom: 10px;
+    background-color: #ffdefd;
+    border: #fdd5fb;
+    padding: 8px;
+}
+
+.author-block button {
+    width: 8%;
+    height: 53px;
+    background-color: #f52273;
+    border-radius: 40px;
+    border: 0px;
+    margin-top: 30px;
+    margin-left: 600px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: #b60345;
+    }
+}
+
+.author-block h2{
+    text-decoration: underline;
+    font-size: 23px;
+    margin-left: 585px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/*Регистрация*/
+.registr-block {
+    width: 600px;
+    height: 830px;
+    background-color: #ffff;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.registr-block h2{
+    text-align: center;
+    color: #f52273;
+    font-size: 40px;
+}
+
+.registr-block input {
+    width: 95%;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background-color: lab(95.86% -2.2 20.76);
+    border: 0px;
+    padding: 8px;
+    font-size: 19px;
+}
+
+.registr-block button{
+    margin-top: 20px;
+    width: 25%;
+    height: 50px;
+    background-color: #f52273;
+   margin-left: 240px;
+   border-radius: 60px;
+   border: 0;
+   font-size: 19px;
+   cursor: pointer;
+   &:hover{
+    background-color: #b60345;
+   }
+}
+.registr-block laber{
+    font-size: 24px;
+}
+
+.registr-block h3{
+    text-decoration: underline;
+    font-size: 23px;
+    margin-left: 240px;
+    cursor: pointer;
 }
 
 
