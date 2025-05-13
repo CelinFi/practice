@@ -103,7 +103,7 @@ body{
     background-color: lab(95.86% -2.2 20.76);
     border: 0px;
     padding: 8px;
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .registr-block button{
@@ -130,5 +130,52 @@ body{
     margin-left: 240px;
     cursor: pointer;
 }
+
+
+/*Чат*/
+.container_chat {
+    display: flex;
+}
+.chat .header {
+    border: 1px solid #ff0000;
+    margin: 1px;
+    width: 700px;
+    height: 120%;
+    background: hwb(327 65% 0%);
+    color: #ffff;
+
+}
+.chat input{
+    width: 670px;
+    height: 30%;
+    border-radius: 10px;
+    border: #fdd5fb;
+    font-size: 20px;
+    margin-left: 10px;
+    background-image: url(https://img.icons8.com/?size=100&id=132&format=png&color=000000);
+    background-repeat: no-repeat;
+    background-position: 98%;
+    background-size: 30px;
+    
+}
+.header h1 {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 35px;
+}
+
+.header .icon{
+    width: 30px;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    margin-left: 600px;
+}
+
+.chat-message {
+
+}
+
 
 
