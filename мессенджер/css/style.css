@@ -135,15 +135,16 @@ body{
 /*Чат*/
 .container_chat {
     display: flex;
+    background: rgb(108, 52, 134);
 }
 .chat .header {
     
     margin: 0px;
-    width: 456px;
-    height: 110%;
-    background: lab(83.63% 28.11 -6.79);
+    width: 450px;
+    height: 160px;
+    
     color: #ffff;
-    margin-top: 3px;
+    margin-top: px;
     margin-left: 0px;
    
 
@@ -152,7 +153,7 @@ body{
     width: 430px;
     height: 35px;
     border-radius: 10px;
-    border: #ffa9fb;
+    border: #f8adf4f5;
     font-size: 20px;
     margin-left: 10px;
     margin-top: 30px;
@@ -183,15 +184,9 @@ body{
 .header-cont {
     display: flex;
 }
-
-
-
-
-
-
- .menu {
-      margin: 0;
-    width: 400px;
+.menu {
+    margin: 0;
+    width: 300px;
     height: 100vh;
     background: lab(16.79% 11.24 -26.15);
     color: #ffff;
@@ -200,7 +195,7 @@ body{
 .menu .messages{
     height: 60px;
     border:  3px solid #a600ff;
-    margin-top: 3px;
+    margin-top: 10px;
     display: flex;
 }
 
@@ -217,12 +212,75 @@ body{
     margin: 0;
     margin-top: 10px;
     margin-left: 20px;
-    
-    
+}
+
+.messages_1{
+    border:  2px solid #bc14dd;
+    margin-top: px;
+    height: 70px;
+}
+.messages_1 p{
+    font-size: 20px;
+    margin-left: 90px;
+}
+
+.avatar {
+    border:  3px solid #a006e7;
+    height: 70px;
+    width: 70px;
+    border-radius: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.ava {
+    width: 70px;
+    border-radius: 100px;
+}
+
+.chat-messages {
+  background-color: #ffc9fb;
+  width: 100%;
+  height: 100vh;
+}
+
+ .in{
+    margin-top: 1100px;
+    margin-left: 30px;
+    width: 90%;
+    height: 60px;
+    border: #f9edff;
+    font-size: 25px;
+    border-radius: 20px;
+}
+.chat-messages button{
+    width: 116px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: #b60345;
+    background-color: #7717d1;
+    cursor: pointer;
+    &:hover{
+        background-color: #5f0d88;
+    }
 }
 
 
+.chat {
+    height: 100vh;
+}
 
-
-
+.chat button{
+    margin-left: 30px;
+    font-size: 17px;
+    margin-top: 20px;
+    border-radius: 20px;
+    height: 43px;
+    border: #b60345;
+    background-color: #f52273;
+    cursor: pointer;
+    &:hover{
+        background-color: #b51552;
+    }
+}
 
