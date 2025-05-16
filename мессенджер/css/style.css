@@ -1,7 +1,9 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #fdd5fb;
+    background:  #833AB4;
+    background:  linear-gradient(90deg,#f2dfff 0%, #f15abf 50%, #a889f1 100%);
+   
 }
 
 .container {
@@ -17,12 +19,17 @@ body{
     font-size: 40px;
     margin-left: 30px;
     margin-top: 30px;
+    
 }
 
-.icon {
-    width: 80px;
+.section_1 .icon {
+    width: 100px;
+    height: 100px;
     margin-left: 50px;
-    margin-top: 20px
+    margin-top: 20px;
+    box-shadow:4px 4px 9px #fc038cfd;
+    border-radius: 20px;
+    
 }
 
 
@@ -34,6 +41,7 @@ body{
     border-radius: 15px;
     margin: 0 auto;
     margin-top: 130px;
+     box-shadow:4px 10px 30px #71109efd;
 }
 
 .author-block h1 {
@@ -53,6 +61,7 @@ body{
     background-color: #ffdefd;
     border: #fdd5fb;
     padding: 8px;
+     box-shadow:4px 4px 9px #fc038cfd;
 }
 
 .author-block button {
@@ -65,6 +74,7 @@ body{
     margin-left: 600px;
     font-size: 20px;
     cursor: pointer;
+     box-shadow:4px 4px 9px #c203fcfd;
     &:hover{
         background-color: #b60345;
     }
@@ -87,12 +97,14 @@ body{
     margin: 0 auto;
     margin-top: 50px;
     padding: 10px;
+     box-shadow:4px 4px 30px #fdff83fd;
 }
 
 .registr-block h2{
     text-align: center;
     color: #f52273;
     font-size: 40px;
+     
 }
 
 .registr-block input {
@@ -104,6 +116,7 @@ body{
     border: 0px;
     padding: 8px;
     font-size: 20px;
+     box-shadow:4px 4px 9px #ff68e6fd;
 }
 
 .registr-block button{
@@ -116,6 +129,7 @@ body{
    border: 0;
    font-size: 19px;
    cursor: pointer;
+    box-shadow:4px 4px 9px #6e03fcfd;
    &:hover{
     background-color: #b60345;
    }
@@ -142,10 +156,10 @@ body{
     margin: 0px;
     width: 450px;
     height: 160px;
-    
     color: #ffff;
     margin-top: px;
     margin-left: 0px;
+       box-shadow:4px 4px 9px #00ec00fd;
    
 
 }
@@ -161,6 +175,7 @@ body{
     background-repeat: no-repeat;
     background-position: 98%;
     background-size: 30px;
+    
     
 }
 .header h1 {
@@ -190,15 +205,28 @@ body{
     height: 100vh;
     background: lab(16.79% 11.24 -26.15);
     color: #ffff;
+    
 }
 
-.menu .messages{
+.menu button{
+    width: 210px;
     height: 60px;
     border:  3px solid #a600ff;
     margin-top: 10px;
-    display: flex;
+    background-color: #282050;
+    color: #f9edff;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow:4px 4px 9px #bd0909fd;
+    &:hover{
+        background-color: #150e36;
+    }
 }
-
+.menu .exit {
+    margin-top: -29px;
+    margin-left: 20px;
+      
+}
 
 .messages p{
     position: absolute;
@@ -218,6 +246,11 @@ body{
     border:  2px solid #bc14dd;
     margin-top: px;
     height: 70px;
+    cursor: pointer;
+     &:hover{
+        background-color: rgb(97, 46, 124);
+    }
+
 }
 .messages_1 p{
     font-size: 20px;
@@ -225,12 +258,13 @@ body{
 }
 
 .avatar {
-    border:  3px solid #a006e7;
+    border:  3px solid #012ffc;
     height: 70px;
     width: 70px;
     border-radius: 100px;
     margin-top: 10px;
     margin-left: 10px;
+    box-shadow:4px 4px 9px #0084ff;
 }
 .ava {
     width: 70px;
@@ -238,7 +272,9 @@ body{
 }
 
 .chat-messages {
-  background-color: #ffc9fb;
+  /*background-color: #f3b8ef;*/
+  background:  #833AB4;
+  background:  linear-gradient(90deg,rgb(218, 161, 255) 0%, #ffa07a 50%, #f3cc94 100%);
   width: 100%;
   height: 100vh;
 }
@@ -251,15 +287,18 @@ body{
     border: #f9edff;
     font-size: 25px;
     border-radius: 20px;
+    box-shadow:4px 4px 9px #ce10e7fd;  
 }
 .chat-messages button{
-    width: 116px;
+    width: 110px;
     height: 45px;
     font-size: 20px;
     border-radius: 20px;
     border: #b60345;
-    background-color: #7717d1;
+    background-color: #eb0967;
     cursor: pointer;
+    color: #ffffff;
+    box-shadow:4px 4px 9px #15ff00;
     &:hover{
         background-color: #5f0d88;
     }
@@ -279,6 +318,8 @@ body{
     border: #b60345;
     background-color: #f52273;
     cursor: pointer;
+    color: #000000;
+     box-shadow:4px 4px 9px #05ff05fd;
     &:hover{
         background-color: #b51552;
     }
