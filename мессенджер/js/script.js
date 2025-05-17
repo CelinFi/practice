@@ -24,7 +24,7 @@ function _get(params, callback) {
     };
 }
 
-_post({ url: '/modules/chat.html' }, function (response) {
+_post({ url: '/modules/registr.html' }, function (response) {
     content.innerHTML = response;
     LoadPageChats()
     LoadPageAuth()
