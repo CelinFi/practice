@@ -24,6 +24,17 @@ function _get(params, callback) {
     };
 }
 
+function _delete(params, callback) {
+    let http_request = new XMLHttpRequest();
+    http_request.open('DELETE', `${params.url}`);
+    http_request.send();
+    http_request.onreadystatechange = function () {
+        if (http_request.readyState == 4) {
+            callback(http_request.responseText)
+        }
+    };
+}
+
 _post({ url: '/modules/registr.html' }, function (response) {
     content.innerHTML = response;
     LoadPageChats()
@@ -34,12 +45,9 @@ function _elem(selector) {
     return document.querySelector(selector)
 }
 
-/*Регистрация*/
+/*Кнопка далее в регистрации*/
 function LoadPageChats() {
     _elem('.registr').addEventListener('click', function () {
-
-
-
         let rdata = new FormData()
         let first_name = _elem('input[name="first_name"]').value
         let last_name = _elem('input[name="last_name"]').value
@@ -66,23 +74,26 @@ function LoadPageChats() {
     })
 
 }
-
+/*Загруска страницы чата*/
 function OnLoadPageChats() {
     _post({ url: '/modules/chat.html' }, function (response) {
         content.innerHTML = response;
+        
     })
 }
 
+/*Кнопка автризация*/
 function LoadPageAuth() {
     document.querySelector('.authorize').addEventListener('click', function() {
         _post({ url: '/modules/author.html' }, function (response) {
         content.innerHTML = response;
         LoadPageChatsAuth()
+        LoadPageReg()
     })
     })
 }
 
-
+/*кнопка далее в авторизации*/
 function LoadPageChatsAuth() {
     _elem('.author').addEventListener('click', function () {
 
@@ -106,6 +117,33 @@ function LoadPageChatsAuth() {
     })
 
 }
+
+/*Кнопка регистрация*/
+function LoadPageReg() {
+    document.querySelector('.reg').addEventListener('click', function() {
+        _post({ url: '/modules/registr.html' }, function (response) {
+        content.innerHTML = response;
+        LoadPageChats()
+        LoadPageAuth()
+    })
+ })
+}
+
+/*кнопка выйти*/
+function LoadPageClick() {
+    document.querySelector('.chats').addEventListener('click', function() {
+        delete_({ url: '/modules/author.html' }, function (response) {
+        content.innerHTML = response;
+        LoadPageChats()
+        LoadPageAuth()
+    })
+ })
+}
+
+
+
+
+
 
 
 

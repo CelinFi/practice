@@ -86,6 +86,9 @@ body{
     margin-left: 585px;
     margin-top: 20px;
     cursor: pointer;
+    &:hover{
+    color: #ff0697;
+   }
 }
 
 /*Регистрация*/
@@ -143,6 +146,9 @@ body{
     font-size: 23px;
     margin-left: 240px;
     cursor: pointer;
+     &:hover{
+    color: #ff0697;
+   }
 }
 
 
@@ -248,7 +254,6 @@ body{
     height: 70px;
     cursor: pointer;
       box-shadow:4px 4px 9px #00ec00fd;
-   
      &:hover{
         background-color: rgb(97, 46, 124);
     }
@@ -268,7 +273,7 @@ body{
     margin-left: 10px;
     box-shadow:4px 4px 9px #0084ff;
 }
-.ava {
+ .ava {
     width: 70px;
     border-radius: 100px;
 }
@@ -290,6 +295,7 @@ body{
     font-size: 25px;
     border-radius: 20px;
     box-shadow:4px 4px 9px #ce10e7fd;  
+    
 }
 .chat-messages button{
     width: 110px;
@@ -301,6 +307,7 @@ body{
     cursor: pointer;
     color: #ffffff;
     box-shadow:4px 4px 9px #15ff00;
+      
     &:hover{
         background-color: #5f0d88;
     }
@@ -327,3 +334,9 @@ body{
     }
 }
 
+.menu h1{
+    margin-top: -55px;
+    margin-left: 100px;
+    font-size: 29px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
