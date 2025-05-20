@@ -132,7 +132,7 @@ function LoadPageReg() {
 /*кнопка выйти*/
 function LoadPageClick() {
     document.querySelector('.chats').addEventListener('click', function() {
-        delete_({ url: '/modules/author.html' }, function (response) {
+        _delete ({ url: '/modules/author.html' }, function (response) {
         content.innerHTML = response;
         LoadPageChats()
         LoadPageAuth()
