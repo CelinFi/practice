@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #8133db;
+   
+}
+
+.container {
+width: 100%;
+}
+
+/*Регистрация*/
+.registr-block{
+    background-color: aliceblue;
+    width: 600px;
+    height: 830px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 120px;
+    padding: 10px;
+}
+
+.registr-block h2{
+    text-align: center;
+    color: #4a13cc;
+    font-size: 40px;
+}
+
+.registr-block input{
+    border-radius: 15px;
+    background-color: #e1d4ff;
+    border: 0px;
+    padding: 8px;
+    font-size: 20px;
+    width: 500px;
+    height: 45px;
+    margin-left: 40px;
+}
+.registr-block h3 {
+    margin: 0;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+.registr-block button{
+    margin-left: 100px;
+    width: 25%;
+    height: 50px;
+    background-color: #5e1df7;
+    font-size: 20px;
+    border-radius: 40px;
+    border: 0;
+    cursor: pointer;
+    margin-top: 40px;
+    &:hover {
+        background-color: #371191;
+    }
+}
+
+/*Авторизация*/
+.section_2{
+    display: flex;
+}
+
+.author-block{
+    width: 1200px;
+    height: 600px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.author-block h1{
+    text-align: center;
+    font-size: 40px;
+    padding-top: 30px;
+}
+
+.author-block input{
+    margin-top: 20px;
+    width: 450px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-left: 360px;
+    background-color: #e1d4ff;
+    border: #ffffff;
+    padding: 8px;
+}
+
+.author-block .author{
+    width: 15%;
+    height: 50px;
+    background-color: #4a13cc;
+    border-radius: 30px;
+    border: #371191;
+    margin-top: 50px;
+    margin-left: 380px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: #371191;
+    }
+}
+.author-block .author_1{
+    width: 15%;
+    height: 50px;
+    background-color: #4a13cc;
+    border-radius: 30px;
+    border: #371191;
+    margin-top: 50px;
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    &:hover{
+        background-color: #371191;
+    }
+}
