@@ -131,7 +131,7 @@ function LoadPageReg() {
 }
 
 /*кнопка выйти в чате*/
-function OnLoadPageClick() {
+/*function OnLoadPageClick() {
     document.querySelector('.exit-1').addEventListener('click', function() {
         let gdata = new FormData()
         let xhr = new XMLHttpRequest();
@@ -146,8 +146,17 @@ function OnLoadPageClick() {
             }
         }
     })
-}
+}*/
 
+function () {
+    document.querySelector('.reg').addEventListener('click', function() {
+        _post({ url: '/modules/registr.html' }, function (response) {
+        content.innerHTML = response;
+        LoadPageChats()
+        LoadPageAuth()
+    })
+ })
+}
 
 
 

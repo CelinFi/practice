@@ -32,8 +32,6 @@ body{
     
 }
 
-
-
 .author-block {
     width: 1300px;
     height: 600px;
@@ -137,6 +135,7 @@ body{
     background-color: #b60345;
    }
 }
+
 .registr-block laber{
     font-size: 24px;
 }
@@ -151,7 +150,6 @@ body{
    }
 }
 
-
 /*Чат*/
 .container_chat {
     display: flex;
@@ -165,9 +163,7 @@ body{
     color: #ffff;
     margin-top: px;
     margin-left: 0px;
-       box-shadow:4px 4px 9px #00ec00fd;
-   
-
+    box-shadow:4px 4px 9px #00ec00fd;
 }
 .chat input{
     width: 430px;
@@ -180,17 +176,14 @@ body{
     background-image: url(https://img.icons8.com/?size=100&id=132&format=png&color=000000);
     background-repeat: no-repeat;
     background-position: 98%;
-    background-size: 30px;
-    
-    
+    background-size: 30px;   
 }
 .header h1 {
     padding: 0;
     margin: 0;
     margin-left: 10px;
     font-size: 40px;
-    margin-top: 10px;
-    
+    margin-top: 10px; 
 }
 
  .icon{
@@ -199,19 +192,19 @@ body{
     padding: 0;
     margin: 0;
     margin-left: 20px;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
 }
+
 .header-cont {
     display: flex;
 }
+
 .menu {
     margin: 0;
     width: 300px;
     height: 100vh;
     background: lab(16.79% 11.24 -26.15);
-    color: #ffff;
-    
+    color: #ffff;  
 }
 
 .menu button{
@@ -230,8 +223,7 @@ body{
 }
 .menu .delete {
     margin-top: -29px;
-    margin-left: 20px;
-      
+    margin-left: 20px;   
 }
 
 .messages p{
@@ -258,8 +250,8 @@ body{
      &:hover{
         background-color: rgb(97, 46, 124);
     }
-
 }
+
 .messages_1 p{
     font-size: 25px;
     margin-left: 30px;
@@ -274,6 +266,7 @@ body{
     margin-left: 10px;
     box-shadow:4px 4px 9px #0084ff;
 }
+
  .ava {
     width: 70px;
     border-radius: 100px;
@@ -288,16 +281,16 @@ body{
 }
 
  .in{
-    margin-top: 1100px;
+    margin-top: 870px;
     margin-left: 30px;
-    width: 90%;
+    width: 87%;
     height: 60px;
     border: #f9edff;
     font-size: 25px;
     border-radius: 20px;
-    box-shadow:4px 4px 9px #ce10e7fd;  
-    
+    box-shadow:4px 4px 9px #ce10e7fd;   
 }
+
 .chat-messages button{
     width: 110px;
     height: 45px;
@@ -313,7 +306,6 @@ body{
         background-color: #5f0d88;
     }
 }
-
 
 .chat {
     height: 100vh;
@@ -341,6 +333,7 @@ body{
     font-size: 29px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .avata {
     border:  3px solid #ff00bf;
     height: 60px;
@@ -356,6 +349,3 @@ body{
     border-radius: 100px;
 }
 
-.avatar p{
-
-}
