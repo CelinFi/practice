@@ -84,11 +84,12 @@ function OnLoadPageChats() {
 
 /*Кнопка автризация*/
 function LoadPageAuth() {
-    document.querySelector('.authorize').addEventListener('click', function() {
+    document.querySelector('.authorize').addEventListener('click', function PageAuth() {
         _post({ url: '/modules/author.html' }, function (response) {
         content.innerHTML = response;
         LoadPageChatsAuth()
         LoadPageReg()
+        OnLoadPageClick()
     })
     })
 }
@@ -129,17 +130,23 @@ function LoadPageReg() {
  })
 }
 
-/*кнопка выйти*/
-function LoadPageClick() {
-    document.querySelector('.chats').addEventListener('click', function() {
-        _delete ({ url: '/modules/author.html' }, function (response) {
-        content.innerHTML = response;
-        LoadPageChats()
-        LoadPageAuth()
+/*кнопка выйти в чате*/
+function OnLoadPageClick() {
+    document.querySelector('.exit-1').addEventListener('click', function() {
+        let gdata = new FormData()
+        let xhr = new XMLHttpRequest();
+        xhr.open('DELETE', `${host}/auth/`);
+        xhr.send(gdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200) {
+                PageAuth()
+            } if (xhr.status == 401) {
+                let response = JSON.parse(xhr.responseText)
+                alert(response.message)
+            }
+        }
     })
- })
 }
-
 
 
 

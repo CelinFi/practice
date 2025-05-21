@@ -228,7 +228,7 @@ body{
         background-color: #150e36;
     }
 }
-.menu .exit {
+.menu .delete {
     margin-top: -29px;
     margin-left: 20px;
       
@@ -253,6 +253,7 @@ body{
     margin-top: px;
     height: 70px;
     cursor: pointer;
+    display: flex;
       box-shadow:4px 4px 9px #00ec00fd;
      &:hover{
         background-color: rgb(97, 46, 124);
@@ -260,8 +261,8 @@ body{
 
 }
 .messages_1 p{
-    font-size: 20px;
-    margin-left: 90px;
+    font-size: 25px;
+    margin-left: 30px;
 }
 
 .avatar {
@@ -339,4 +340,22 @@ body{
     margin-left: 100px;
     font-size: 29px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.avata {
+    border:  3px solid #ff00bf;
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    margin-top: 4px;
+    margin-left: 10px;
+    box-shadow:4px 4px 9px #00ff55;
+}
+
+.ava-1 {
+    width: 60px;
+    border-radius: 100px;
+}
+
+.avatar p{
+
 }
