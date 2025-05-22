@@ -131,9 +131,10 @@ function LoadPageReg() {
 }
 
 /*кнопка выйти в чате*/
-/*function OnLoadPageClick() {
+function OnLoadPageClick() {
     document.querySelector('.exit-1').addEventListener('click', function() {
         let gdata = new FormData()
+        gdata.append('token',token)
         let xhr = new XMLHttpRequest();
         xhr.open('DELETE', `${host}/auth/`);
         xhr.send(gdata);
@@ -146,16 +147,13 @@ function LoadPageReg() {
             }
         }
     })
-}*/
+}
 
-function () {
-    document.querySelector('.reg').addEventListener('click', function() {
-        _post({ url: '/modules/registr.html' }, function (response) {
+function  OnLoadPageChats() {
+        _post({ url: '/modules/chat.html' }, function (response) {
         content.innerHTML = response;
-        LoadPageChats()
-        LoadPageAuth()
+         OnLoadPageClick()
     })
- })
 }
 
 
