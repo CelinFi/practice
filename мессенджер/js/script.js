@@ -1,5 +1,6 @@
 const host = `http://api-messenger.web-srv.local`
 const content = document.querySelector(".content")
+var token = "";
 
 
 function _post(params, callback) {
@@ -89,7 +90,7 @@ function LoadPageAuth() {
         content.innerHTML = response;
         LoadPageChatsAuth()
         LoadPageReg()
-        OnLoadPageClick()
+       OnLoadPageClick()
     })
     })
 }
