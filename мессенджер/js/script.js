@@ -157,6 +157,39 @@ function  OnLoadPageChats() {
     })
 }
 
+/*function OnLoadPageClick() {
+    document.querySelector('exit-1').addEventListener('click', function() {
+        _post({ url: '/modules/author.html' }, function (response) {
+        content.innerHTML = response;
+        LoadPageChatsAuth()
+        LoadPageAuth()
+    })
+ })
+}*/
+
+/*function OnLoadPageClick() {
+    _elem('exit-1').addEventListener('click', function () {
+
+        let gdata = new FormData()
+        let email = _elem('input[name="email"]').value
+        gdata.append('email', email)
+    
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', `${host}/auth/`);
+        xhr.send(gdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.status == 200) {
+                LoadPageAuth()
+            } if (xhr.status == 401) {
+                let response = JSON.parse(xhr.responseText)
+                alert(response.message)
+            }
+        }
+    })
+
+}*/
+
 
 
 
