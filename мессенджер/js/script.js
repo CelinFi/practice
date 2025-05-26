@@ -36,6 +36,17 @@ function _delete(params, callback) {
     };
 }
 
+function _load(url, callback) {
+    let http_request = new XMLHttpRequest();
+    http_request.open('GET', url);
+    http_request.send();
+    http_request.onreadystatechange = function () {
+        if (http_request.readyState == 4) {
+            callback(http_request.responseText)
+        }
+    };
+}
+
 _post({ url: '/modules/registr.html' }, function (response) {
     content.innerHTML = response;
     LoadPageChats()
@@ -110,13 +121,24 @@ function LoadPageChatsAuth() {
         xhr.send(edata);
         xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
-                OnLoadPageChats()
+                let response = JSON.parse(xhr.responseText)
+                edata.append('token',token)
+                console.log(token);
+            
+           OnLoadPageChats()
             } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-            }
+            
+        
         }
-    })
+
+     _load({ url: '/modules/chat.html' }, function (response) {
+                 content.innerHTML = response;
+                  OnLoadPagelogout();
+             });
+    }}
+)
 
 }
 
@@ -132,13 +154,13 @@ function LoadPageReg() {
 }
 
 /*кнопка выйти в чате*/
-function OnLoadPageClick() {
+function OnLoadPagelogout() {
     document.querySelector('.exit-1').addEventListener('click', function() {
-        let gdata = new FormData()
-        gdata.append('token',token)
+       
         let xhr = new XMLHttpRequest();
         xhr.open('DELETE', `${host}/auth/`);
-        xhr.send(gdata);
+        xhr.setRequestHeader( "Authorization", "Bearer " + token );
+        xhr.send();
         xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
                 PageAuth()
@@ -147,6 +169,11 @@ function OnLoadPageClick() {
                 alert(response.message)
             }
         }
+
+        _load({ url: '/modules/author.html' }, function (response) {
+                    
+
+        })
     })
 }
 
@@ -189,6 +216,10 @@ function  OnLoadPageChats() {
     })
 
 }*/
+
+
+
+
 
 
 
