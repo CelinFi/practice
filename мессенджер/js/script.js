@@ -101,7 +101,7 @@ function LoadPageAuth() {
         content.innerHTML = response;
         LoadPageChatsAuth()
         LoadPageReg()
-       OnLoadPageClick()
+       OnLoadPagelogout() 
     })
     })
 }
@@ -122,24 +122,32 @@ function LoadPageChatsAuth() {
         xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
                 let response = JSON.parse(xhr.responseText)
-                edata.append('token',token)
-                console.log(token);
+             token = response.token
+             console.log(token)
+             
             
-           OnLoadPageChats()
+          OnLoadPageChats()
             } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-            
-        
-        }
 
+                
      _load({ url: '/modules/chat.html' }, function (response) {
                  content.innerHTML = response;
                   OnLoadPagelogout();
-             });
-    }}
-)
 
+               document.querySelector('.exit-1').addEventListener('click', function() {
+               _post({ url: '/modules/author.html' }, function (response) {
+               content.innerHTML = response;
+            })
+        })
+    });
+} else {
+    console.error('Ошибка ')
+}
+
+}
+})
 }
 
 /*Кнопка регистрация*/
@@ -169,53 +177,17 @@ function OnLoadPagelogout() {
                 alert(response.message)
             }
         }
-
-        _load({ url: '/modules/author.html' }, function (response) {
-                    
-
-        })
     })
 }
 
 function  OnLoadPageChats() {
         _post({ url: '/modules/chat.html' }, function (response) {
         content.innerHTML = response;
-         OnLoadPageClick()
+         OnLoadPagelogout() 
     })
 }
 
-/*function OnLoadPageClick() {
-    document.querySelector('exit-1').addEventListener('click', function() {
-        _post({ url: '/modules/author.html' }, function (response) {
-        content.innerHTML = response;
-        LoadPageChatsAuth()
-        LoadPageAuth()
-    })
- })
-}*/
 
-/*function OnLoadPageClick() {
-    _elem('exit-1').addEventListener('click', function () {
-
-        let gdata = new FormData()
-        let email = _elem('input[name="email"]').value
-        gdata.append('email', email)
-    
-
-        let xhr = new XMLHttpRequest();
-        xhr.open('POST', `${host}/auth/`);
-        xhr.send(gdata);
-        xhr.onreadystatechange = function () {
-            if (xhr.status == 200) {
-                LoadPageAuth()
-            } if (xhr.status == 401) {
-                let response = JSON.parse(xhr.responseText)
-                alert(response.message)
-            }
-        }
-    })
-
-}*/
 
 
 
