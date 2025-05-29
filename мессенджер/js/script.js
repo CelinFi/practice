@@ -106,9 +106,11 @@ function LoadPageAuth() {
     })
 }
 
+_load('/modules/author.html',content,LoadPageChatsAuth)
 /*кнопка далее в авторизации*/
 function LoadPageChatsAuth() {
     _elem('.author').addEventListener('click', function () {
+        _load('/modules/registr.html',content,LoadPageChats)
 
         let edata = new FormData()
         let email = _elem('input[name="email"]').value
@@ -124,26 +126,11 @@ function LoadPageChatsAuth() {
                 let response = JSON.parse(xhr.responseText)
              token = response.token
              console.log(token)
-             
-            
-          OnLoadPageChats()
-            } if (xhr.status == 401) {
+           OnLoadPageChats()
+           } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-
-                
-     _load({ url: '/modules/chat.html' }, function (response) {
-                 content.innerHTML = response;
-                  OnLoadPagelogout();
-
-               document.querySelector('.exit-1').addEventListener('click', function() {
-               _post({ url: '/modules/author.html' }, function (response) {
-               content.innerHTML = response;
-            })
-        })
-    });
-} else {
-    console.error('Ошибка ')
+          _load('/modules/chat.html',content, OnLoadPageChats)
 }
 
 }
@@ -161,6 +148,7 @@ function LoadPageReg() {
  })
 }
 
+
 /*кнопка выйти в чате*/
 function OnLoadPagelogout() {
     document.querySelector('.exit-1').addEventListener('click', function() {
@@ -175,7 +163,7 @@ function OnLoadPagelogout() {
             } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-            }
+            } 
         }
     })
 }
@@ -189,10 +177,29 @@ function  OnLoadPageChats() {
 
 
 
+ /*_load({ url: '/modules/chat.html' }, function (response) {
+                 content.innerHTML = response;
+                  OnLoadPagelogout();
+
+               document.querySelector('.exit-1').addEventListener('click', function() {
+               _post({ url: '/modules/author.html' }, function (response) {
+               content.innerHTML = response;
+            })
+        })
+    });*/
 
 
+ /*_elem('.exit').addEventListener('click', function () {
+        _exit({ url: `${host}/auth` }, function (response) {
+            response = JSON.parse(response)
+            console.log(response)
+            token = ''
 
+             _load('/modules/auth.html',content, LoadPageChatsAuth)
+             _elem('.callback').innerHTML = 'Выход'
 
+    })
+ })*/
 
 
 
