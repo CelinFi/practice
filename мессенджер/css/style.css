@@ -91,8 +91,8 @@ body{
 
 /*Регистрация*/
 .registr-block {
-    width: 550px;
-    height: 780px;
+    width: 510px;
+    height: 770px;
     background-color: #ffff;
     border-radius: 15px;
     margin: 0 auto;
@@ -153,7 +153,8 @@ body{
 /*Чат*/
 .container_chat {
     display: flex;
-    background: rgb(105, 45, 133);
+      background:  linear-gradient(90deg,rgb(8, 0, 255) 3%, #ff0000 30%, #2b00ff 100%);
+    /*background: rgb(105, 44, 133);*/
 }
 .chat .header {
     
@@ -248,7 +249,7 @@ body{
     display: flex;
       box-shadow:4px 4px 9px #00ec00fd;
      &:hover{
-        background-color: rgb(97, 46, 124);
+        background-color: rgba(71, 43, 131, 0.394);
     }
 }
 
@@ -275,7 +276,7 @@ body{
 .chat-messages {
   /*background-color: #f3b8ef;*/
   background:  #833AB4;
-  background:  linear-gradient(90deg,rgb(210, 161, 255) 0%, #ffa07a 50%, #f3cc94 100%);
+   background:  linear-gradient(90deg,rgb(190, 123, 244) 0%, #7af6ff 50%, #7b66f4 100%);
   width: 100%;
   height: 100vh;
 }
@@ -318,7 +319,8 @@ body{
     border-radius: 20px;
     height: 43px;
     border: #b60345;
-    background-color: #f52273;
+    /*background-color: #f52273;*/
+     background:  linear-gradient(90deg,rgb(172, 5, 255) 0%, #00f331 50%, #00ffe1 100%);
     cursor: pointer;
     color: #000000;
      box-shadow:4px 4px 9px #05ff05fd;

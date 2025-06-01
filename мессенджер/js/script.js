@@ -25,7 +25,7 @@ function _get(params, callback) {
     };
 }
 
-function _delete(params, callback) {
+/*function _delete(params, callback) {
     let http_request = new XMLHttpRequest();
     http_request.open('DELETE', `${params.url}`);
     http_request.send();
@@ -45,7 +45,7 @@ function _load(url, callback) {
             callback(http_request.responseText)
         }
     };
-}
+}*/
 
 _post({ url: '/modules/registr.html' }, function (response) {
     content.innerHTML = response;
@@ -163,7 +163,9 @@ function OnLoadPagelogout() {
             } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-            } 
+            } else {
+                console.log("Status: ", response.status)
+            }
         }
     })
 }
