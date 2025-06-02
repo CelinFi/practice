@@ -25,7 +25,7 @@ function _get(params, callback) {
     };
 }
 
-/*function _delete(params, callback) {
+function _delete(params, callback) {
     let http_request = new XMLHttpRequest();
     http_request.open('DELETE', `${params.url}`);
     http_request.send();
@@ -45,7 +45,7 @@ function _load(url, callback) {
             callback(http_request.responseText)
         }
     };
-}*/
+}
 
 _post({ url: '/modules/registr.html' }, function (response) {
     content.innerHTML = response;
@@ -101,7 +101,9 @@ function LoadPageAuth() {
         content.innerHTML = response;
         LoadPageChatsAuth()
         LoadPageReg()
-       OnLoadPagelogout() 
+         LoadPageLogout()
+       
+       
     })
     })
 }
@@ -110,7 +112,7 @@ _load('/modules/author.html',content,LoadPageChatsAuth)
 /*кнопка далее в авторизации*/
 function LoadPageChatsAuth() {
     _elem('.author').addEventListener('click', function () {
-        _load('/modules/registr.html',content,LoadPageChats)
+       _load('/modules/registr.html',content,LoadPageChats)
 
         let edata = new FormData()
         let email = _elem('input[name="email"]').value
@@ -130,7 +132,7 @@ function LoadPageChatsAuth() {
            } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
-          _load('/modules/chat.html',content, OnLoadPageChats)
+         _load('/modules/chat.html',content, OnLoadPageChats)
 }
 
 }
@@ -150,12 +152,12 @@ function LoadPageReg() {
 
 
 /*кнопка выйти в чате*/
-function OnLoadPagelogout() {
+/*function OnLoadPagelogout() {
     document.querySelector('.exit-1').addEventListener('click', function() {
        
         let xhr = new XMLHttpRequest();
         xhr.open('DELETE', `${host}/auth/`);
-        xhr.setRequestHeader( "Authorization", "Bearer " + token );
+        xhr.setRequestHeader( "Authorization", "Bearer " + token);
         xhr.send();
         xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
@@ -165,7 +167,7 @@ function OnLoadPagelogout() {
                 alert(response.message)
             } else {
                 console.log("Status: ", response.status)
-            }
+            } 
         }
     })
 }
@@ -175,33 +177,31 @@ function  OnLoadPageChats() {
         content.innerHTML = response;
          OnLoadPagelogout() 
     })
+}*/
+
+
+  // выход из чата
+function LoadPageLogout() {
+    _elem('.exit-1').addEventListener('click', function () {
+        token = "";
+        _post({ url: '/modules/registr.html' }, function (response) {
+            content.innerHTML = response;
+            LoadPageChats(); 
+            LoadPageAuth(); 
+        });
+    });
 }
 
 
-
- /*_load({ url: '/modules/chat.html' }, function (response) {
-                 content.innerHTML = response;
-                  OnLoadPagelogout();
-
-               document.querySelector('.exit-1').addEventListener('click', function() {
-               _post({ url: '/modules/author.html' }, function (response) {
-               content.innerHTML = response;
-            })
-        })
-    });*/
+function OnLoadPageChats() {
+    _post({ url: '/modules/chat.html' }, function (response) {
+        content.innerHTML = response;
+        LoadPageLogout();
+    });
+}
 
 
- /*_elem('.exit').addEventListener('click', function () {
-        _exit({ url: `${host}/auth` }, function (response) {
-            response = JSON.parse(response)
-            console.log(response)
-            token = ''
-
-             _load('/modules/auth.html',content, LoadPageChatsAuth)
-             _elem('.callback').innerHTML = 'Выход'
-
-    })
- })*/
+//кнопка удалить
 
 
 
