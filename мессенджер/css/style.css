@@ -174,10 +174,10 @@ body{
     font-size: 20px;
     margin-left: 10px;
     margin-top: 20px;
-    background-image: url(https://img.icons8.com/?size=100&id=132&format=png&color=000000);
+   /* background-image: url(https://img.icons8.com/?size=100&id=132&format=png&color=000000);
     background-repeat: no-repeat;
     background-position: 98%;
-    background-size: 30px;   
+    background-size: 30px;   */
 }
 .header h1 {
     padding: 0;
@@ -259,13 +259,16 @@ body{
 }
 
 .avatar {
-    border:  3px solid #012ffc;
+    /*border:  3px solid #012ffc;*/
     height: 70px;
     width: 70px;
     border-radius: 100px;
     margin-top: 10px;
     margin-left: 10px;
-    box-shadow:4px 4px 9px #0084ff;
+    /*box-shadow:4px 4px 9px #0084ff;*/
+    border:  3px solid #fc0101;
+    box-shadow:4px 4px 9px #ff0000;
+
 }
 
  .ava {
@@ -349,5 +352,9 @@ body{
 .ava-1 {
     width: 60px;
     border-radius: 100px;
+}
+
+.message_companion1 {
+    
 }
 
