@@ -285,8 +285,9 @@ body{
 }
 
  .in{
-    margin-top: 840px;
-    margin-left: 30px;
+    margin-top: 800px;
+    margin-left: -450px;
+    margin-right: 30px;
     width: 87%;
     height: 60px;
     border: #f9edff;
@@ -304,6 +305,8 @@ body{
     background-color: #eb0967;
     cursor: pointer;
     color: #ffffff;
+    margin-top: 810px;
+    margin-right: 70px;
     box-shadow:4px 4px 9px #15ff00;
       
     &:hover{
@@ -318,7 +321,7 @@ body{
 .chat button{
     margin-left: 30px;
     font-size: 17px;
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 20px;
     height: 43px;
     border: #b60345;
@@ -353,8 +356,31 @@ body{
     width: 60px;
     border-radius: 100px;
 }
+/*.block_messages {
+    display: flex;
+}*/
 
-.message_companion1 {
-    
+.chat-messages{
+    display: flex;
+}
+ .message_companion1 {
+    width: 130%;
+    height: 83px;
+    background:  linear-gradient(90deg,rgb(153, 0, 255) 6%, #00c3ff 30%, #9088ff 100%);
+    margin-top: 40px;
+    border-radius: 15px;
+    margin-left: 30px;
+    box-shadow:4px 4px 9px #00b7ff;
+   
+}
+
+.message_companion2 {
+     width: 130%;
+    height: 83px;
+    background:  linear-gradient(90deg,#9088ff 6%, #00d9ff 30%, #8f05ff 100%);
+    margin-top: 30px;
+    border-radius: 15px;
+    margin-left: 500px;
+    box-shadow:4px 4px 9px #00b7ff;
 }
 

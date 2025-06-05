@@ -178,6 +178,7 @@ function LoadPageLogout() {
              });
         });
     }
+    //списки чатов
     _get(`${host}/chats`, function(res){
         res = JSON.parse(res)
         console.log(res)
@@ -234,8 +235,6 @@ function showMessages(chat_id){
 //#endregion
 //Создание нового чата
 function  createChat(email) {
-    /*createChat(userEmailToChat);
-    const userEmailToChat = "akkullow@inbox.ru";*/
     const url = `${host}/chats/`;
     const data = JSON.stringify({email:email});
     const xhr = new XMLHttpRequest();
@@ -255,117 +254,6 @@ function  createChat(email) {
     };
     xhr.send(data);
 }
-//редактирование  профиля
-/*function LoadPageEditProfile(){
-    const editBtn = _elem('edit-profile');
-    if(editBtn) {
-         editBtn.addEventListener('click', () => {
-         xhr.open('PUT', `${host}/user/me/`);
-         xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-         xhr.send();
-         xhr.onreadystatechange = () => {
-             if (xhr.readyState === 4 && xhr.status === 200) {
-                const userData = JSON.parse(xhr.responseText);
-                const formHTML =`
-                <h2>редактировать профиль</h2>
-                <form id ="editProfileForm">
-                 <label>Имя: <input type="text" name="first_name" value="${userData.first_name || ''}"></label><br>
-                 <label>Фамилия: <input type="text" name="last_name" value="${userData.last_name || ''}"></label><br>
-                 <label>Отчество: <input type="text" name="sur_name" value="${userData.sur_name || ''}"></label><br>
-                 <label>Email: <input type="email" name="email" value="${userData.email || ''}"></label><br>
-                  <button type="submit">Сохранить</button>
-
-                </form>
-                `;
-                content.innerHTML =formHTML
-
-                //обработчик отправки формы
-                document.getElementById('editProfileForm').addEventListener('submit',function(e){
-                    e.preventDefault();
-
-                    const formData = new FormData(e.target);
-                    let updateXhr = new XMLHttpRequest();
-                    updateXhr.open('POST', `${host}/user/`);
-                    updateXhr.setRequestHeader('Authorization', 'Bearer ' + token);
-                    updateXhr.send(formData);
-                    updateXhr.onreadystatechange = () => {
-                        if (updateXhr.readyState === 4) {
-                            if (updateXhr.status === 200) {
-                                alert('Данные успешно обновлены');
-                                OnLoadPageChats();
-                            } else {
-                                alert('Ошибка при обновлении данных')
-                            }
-                        }
-
-                      };
-
-                });
-
-            } else if (xhr.readyState === 4 && xhr.status !== 200) 
-                alert('Не удалось получить данные пользователя');
-
-            };
-
-         });
-
-    }
-     
-}*/
-
-
-
-
-  // выход из чата
-/*function LoadPageLogout() {
-    _elem('.exit-1').addEventListener('click', function () {
-        token = "";
-        _post({ url: '/modules/registr.html' }, function (response) {
-            content.innerHTML = response;
-            LoadPageChats(); 
-            LoadPageAuth(); 
-        });
-    });
-}
-
-
-function OnLoadPageChats() {
-    _post({ url: '/modules/chat.html' }, function (response) {
-        content.innerHTML = response;
-        LoadPageLogout();
-    });
-}*/
-
-
-
-/*кнопка выйти в чате*/
-/*function OnLoadPagelogout() {
-    document.querySelector('.exit-1').addEventListener('click', function() {
-       
-        let xhr = new XMLHttpRequest();
-        xhr.open('DELETE', `${host}/auth/`);
-        xhr.setRequestHeader( "Authorization", "Bearer " + token);
-        xhr.send();
-        xhr.onreadystatechange = function () {
-            if (xhr.status == 200) {
-                PageAuth()
-            } if (xhr.status == 401) {
-                let response = JSON.parse(xhr.responseText)
-                alert(response.message)
-            } else {
-                console.log("Status: ", response.status)
-            } 
-        }
-    })
-}
-
-function  OnLoadPageChats() {
-        _post({ url: '/modules/chat.html' }, function (response) {
-        content.innerHTML = response;
-         OnLoadPagelogout() 
-    })
-}*/
-
 
 
 
