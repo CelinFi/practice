@@ -47,7 +47,9 @@ function _load(url, callback) {
     http_request.send();
     http_request.onreadystatechange = function () {
         if (http_request.readyState == 4) {
-            callback(http_request.responseText)
+            if (typeof(callback) == "function")  {
+                callback(http_request.responseText)
+            }
         }
     };
 }
@@ -114,7 +116,7 @@ function LoadPageAuth() {
     })
 }
 
-_load('/modules/author.html',content,LoadPageChatsAuth)
+_load('/modules/author.html',LoadPageChatsAuth)
 /*кнопка далее в авторизации*/
 function LoadPageChatsAuth() {
     _elem('.author').addEventListener('click', function () {
@@ -127,7 +129,7 @@ function LoadPageChatsAuth() {
         edata.append('pass', password)
 
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', `${host}/auth/`);
+        xhr.open('POST', `${host}/auth`);
         xhr.send(edata);
         xhr.onreadystatechange = function () {
             if (xhr.status == 200) {
@@ -257,6 +259,8 @@ function  createChat(email) {
     xhr.send(data);
 }
 
+
+
 //получить сообщения для чата 
 /*function sendMessage(chat_id, messageText){
     const data = new FormData();
@@ -318,8 +322,8 @@ function  showMessages(chat_id) {
     });
 }
 
-//щтпрравка сообщения 
-function sendMessage (chat_id,messageText) {
+щтпрравка сообщения 
+/*function sendMessage (chat_id,messageText) {
     const url = `${host}/messages/`;
     const data = JSON.stringify({
         chat_id: chat_id,
@@ -341,5 +345,3 @@ function sendMessage (chat_id,messageText) {
     };
     xhr.send(data);
 }*/
-
-
