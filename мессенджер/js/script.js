@@ -1,6 +1,9 @@
 const host = `http://api-messenger.web-srv.local`
 const content = document.querySelector(".content")
 var token = "";
+let user_id = null; 
+let currentChatId = null; 
+
 
 
 function _post(params, callback) {
@@ -99,6 +102,8 @@ function OnLoadPageChats() {
     _post({ url: '/modules/chat.html' }, function (response) {
         content.innerHTML = response;
         LoadPageLogout() 
+        getCurrentUser();
+
         // LoadPageEditProfile();
         
         
@@ -138,7 +143,6 @@ function LoadPageChatsAuth() {
                 console.log(response)
                 console.log(token)
                 OnLoadPageChats()
-           // createChat("user@usermail.ru");//создание чата по email
            } if (xhr.status == 401) {
                 let response = JSON.parse(xhr.responseText)
                 alert(response.message)
@@ -215,11 +219,14 @@ function LoadPageLogout() {
         });
     })
 }
+
+
 function showMessages(chat_id){
     _get(`${host}/user`, function(response){
         response = JSON.parse(response)
         user_id = response.id;
         console.log(user_id)
+       
     })
     _get(`${host}/messages/?chat_id=${chat_id}`, function(res){
         res = JSON.parse(res)
@@ -235,10 +242,23 @@ function showMessages(chat_id){
     })
 }
 
+let chats = [];
+ const inputArea = document.getElementById('input-area');
+ // Отправка сообщения
+  inputArea.addEventListener('submit', e => {
+    e.preventDefault();
+    const text = messageInput.value.trim();
+    if (!text || !currentChatId) return;
+
+    const chat = chats.find(c => c.id === currentChatId);
+    chat.messages.push({ user: currentUser, text });
+    messageInput.value = '';
+    renderMessages();
+  });
 
 //#endregion
 //Создание нового чата
-function  createChat(email) {
+/*function  createChat(email) {
     const url = `${host}/chats/`;
     const data = JSON.stringify({email:email});
     const xhr = new XMLHttpRequest();
@@ -257,91 +277,7 @@ function  createChat(email) {
         }
     };
     xhr.send(data);
-}
-
-
-
-//получить сообщения для чата 
-/*function sendMessage(chat_id, messageText){
-    const data = new FormData();
-    data.append('chat_id', chat_id);
-    data.append('message', messageText);
-
-    _post({ url: `${host}/messages/`, data:data}, function(responseText){
-        const response = JSON.parse(responseText);
-        if (response.success) {
-            showMessages(chat_id);
-        } else {
-            alert('Ошибка при отправки сообщения');
-        }
-    });
-}
-
-const sendButton = document.querySelector('.chat-messanges button');
-const sendInput = document.querySelector('.chat-messanges .in');
-
-sendButton.addEventListener('click', () => {
-    const messageText = messageInput.value.frim();
-    if (messageText !== '') {
-        sendMessage(currentChatId, messageText);
-        messageInput.value = '';
-    }
-});
-
-let currentChatId = null;
-sendButton.addEventListener('click', () => {
-    const messageText = inputMessage.value.trim();
-    if (messageText && currentChatId) {
-        sendMessage(currentChatId, messageText);
-        inputMessage.value = ''; 
-       
-    } else {
-        alert('Введите сообщение и выберите чат');
-    }
-});
-
-function  showMessages(chat_id) {
-    currentChatId = chat_id;
-    _get(`${host}/messages/?chat_id=${chat_id}`, function(res){
-        res = JSON.parse(res);
-        const messagesContainer = document.querySelector('.block_messages');
-        messagesContainer.innerHTML = '';
-         res.forEach(msg => {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('message');
-
-            if (msg.sender.id === user_id) {
-                msgDiv.classList.add('message_user'); 
-            } else {
-                msgDiv.classList.add('message_companion'); 
-            }
-
-            msgDiv.textContent = msg.message; 
-            messagesContainer.appendChild(msgDiv);
-        });
-    });
-}
-
-щтпрравка сообщения 
-/*function sendMessage (chat_id,messageText) {
-    const url = `${host}/messages/`;
-    const data = JSON.stringify({
-        chat_id: chat_id,
-        message: messageText
-    });
-     const xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200 || xhr.status === 201) {
-                console.log('Сообщение успешно отправлено');
-                
-            } else {
-                console.error('Ошибка при отправке сообщения:', xhr.responseText);
-            }
-        }
-    };
-    xhr.send(data);
 }*/
+
+
+

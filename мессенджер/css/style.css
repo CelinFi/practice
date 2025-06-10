@@ -284,35 +284,46 @@ body{
   height: 100vh;
 }
 
- .in{
-    margin-top: 800px;
-    margin-left: -450px;
-    margin-right: 30px;
-    width: 87%;
-    height: 60px;
-    border: #f9edff;
-    font-size: 25px;
-    border-radius: 20px;
-    box-shadow:4px 4px 9px #ce10e7fd;   
-}
+ #input-area {
+    display: flex;
+    padding: 10px 15px;
+    /*background:  linear-gradient(90deg,rgb(128, 0, 255) 0%, #00f331 50%, #00ffe1 100%);*/
+    height: 5vh;
+    width: 100%;
+    margin-top: 840px;
+    margin-left: -500px;
+    border-radius: 0px;
+  }
 
-.chat-messages button{
-    width: 110px;
-    height: 45px;
-    font-size: 20px;
+ #message-input{
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1em;
     border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size:20px;
+    box-shadow:4px 4px 9px #05e2fffd; 
+    /* box-shadow:4px 4px 9px #00c3ff;*/
+}
+#send {
+    margin-left: 10px;
+    padding: 10px 20px;
     border: #b60345;
     background-color: #eb0967;
+    /*background: #5709ff;*/
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 20px;
     cursor: pointer;
-    color: #ffffff;
-    margin-top: 810px;
-    margin-right: 70px;
-    box-shadow:4px 4px 9px #15ff00;
-      
-    &:hover{
-        background-color: #5f0d88;
+     box-shadow:4px 4px 9px #00b7ff;
+     &:hover{
+        background-color: #01cafc;
     }
-}
+  }
+
 
 .chat {
     height: 100vh;
