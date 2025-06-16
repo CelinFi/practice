@@ -10,6 +10,7 @@ function _post(params, callback) {
     let http_request = new XMLHttpRequest();
     http_request.open('POST', `${params.url}`)
     http_request.setRequestHeader('Authorization', 'Bearer ' + token);
+    http_request.setRequestHeader('Content-Type', 'application/json');
     http_request.send(params.data)
     http_request.onreadystatechange = function () {
         if (http_request.readyState == 4) {
@@ -242,7 +243,59 @@ function showMessages(chat_id){
     })
 }
 
-let chats = [];
+const messageForm = document.getElementById('input-area');
+const messageInput = document.getElementById('message-input');
+
+// Обработчик отправки формы
+messageForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Предотвращаем перезагрузку страницы
+
+    const messageText = messageInput.value.trim();
+
+    if (messageText.length < 1) {
+        alert("Сообщение не может быть пустым");
+        return;
+    }
+
+    // Создаем объект данных для отправки
+    const data = {
+        chat_id: currentChatId, // текущий чат, в который отправляем сообщение
+        message: messageText
+    };
+
+    // Отправляем сообщение на сервер
+    _post({ url: `${host}/messages/`, data: JSON.stringify(data) }, function(responseText) {
+        const response = JSON.parse(responseText);
+        if (response.success) {
+            // После успешной отправки можно добавить сообщение в чат
+            addMessageToChat(response.message);
+            // Очищаем поле ввода
+            messageInput.value = '';
+        } else {
+            alert('Ошибка при отправке сообщения');
+        }
+    });
+});
+
+
+function addMessageToChat(message) {
+    const messagesContainer = document.querySelector('.block_messages');
+
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+
+  
+    if (message.sender_id === user_id) {
+        messageDiv.classList.add('message_user');
+    } else {
+        messageDiv.classList.add('message_companion');
+    }
+
+    messageDiv.textContent = message.text;
+
+    messagesContainer.appendChild(messageDiv);
+}
+/*let chats = [];
  const inputArea = document.getElementById('input-area');
  // Отправка сообщения
   inputArea.addEventListener('submit', e => {
@@ -254,7 +307,7 @@ let chats = [];
     chat.messages.push({ user: currentUser, text });
     messageInput.value = '';
     renderMessages();
-  });
+  });*/
 
 //#endregion
 //Создание нового чата
