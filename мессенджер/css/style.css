@@ -295,7 +295,7 @@ body{
     border-radius: 0px;
   }
 
- #message-input{
+ .message-input{
     flex-grow: 1;
     padding: 10px;
     font-size: 1em;
@@ -306,7 +306,7 @@ body{
     box-shadow:4px 4px 9px #05e2fffd; 
     /* box-shadow:4px 4px 9px #00c3ff;*/
 }
-#send {
+.send {
     margin-left: 10px;
     padding: 10px 20px;
     border: #b60345;

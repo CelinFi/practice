@@ -9,8 +9,7 @@ let currentChatId = null;
 function _post(params, callback) {
     let http_request = new XMLHttpRequest();
     http_request.open('POST', `${params.url}`)
-    http_request.setRequestHeader('Authorization', 'Bearer ' + token);
-    http_request.setRequestHeader('Content-Type', 'application/json');
+    http_request.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem (token));
     http_request.send(params.data)
     http_request.onreadystatechange = function () {
         if (http_request.readyState == 4) {
@@ -69,6 +68,7 @@ function _elem(selector) {
 }
 
 /*Кнопка далее в регистрации*/
+//#region Регистрация
 function LoadPageChats() {
     _elem('.registr').addEventListener('click', function () {
         let rdata = new FormData()
@@ -98,6 +98,7 @@ function LoadPageChats() {
 
 }
 /*Загруска страницы чата*/
+//#region Загруска страницы чата
 function OnLoadPageChats() {
 
     _post({ url: '/modules/chat.html' }, function (response) {
@@ -112,6 +113,7 @@ function OnLoadPageChats() {
 }
 
 /*Кнопка автризация*/
+//#region Кнопка автризация
 function LoadPageAuth() {
     document.querySelector('.authorize').addEventListener('click', function PageAuth() {
         _post({ url: '/modules/author.html' }, function (response) {
@@ -124,6 +126,7 @@ function LoadPageAuth() {
 
 _load('/modules/author.html',LoadPageChatsAuth)
 /*кнопка далее в авторизации*/
+//#region Авторизация
 function LoadPageChatsAuth() {
     _elem('.author').addEventListener('click', function () {
        _load('/modules/registr.html',content,LoadPageChats)
@@ -155,6 +158,7 @@ function LoadPageChatsAuth() {
 }
 
 /*Кнопка регистрация*/
+//#region Кнопка регистрация
 function LoadPageReg() {
     document.querySelector('.reg').addEventListener('click', function() {
         _post({ url: '/modules/registr.html' }, function (response) {
@@ -243,58 +247,24 @@ function showMessages(chat_id){
     })
 }
 
-const messageForm = document.getElementById('input-area');
-const messageInput = document.getElementById('message-input');
 
-// Обработчик отправки формы
-messageForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Предотвращаем перезагрузку страницы
-
-    const messageText = messageInput.value.trim();
-
-    if (messageText.length < 1) {
-        alert("Сообщение не может быть пустым");
-        return;
-    }
-
-    // Создаем объект данных для отправки
-    const data = {
-        chat_id: currentChatId, // текущий чат, в который отправляем сообщение
-        message: messageText
-    };
-
-    // Отправляем сообщение на сервер
-    _post({ url: `${host}/messages/`, data: JSON.stringify(data) }, function(responseText) {
-        const response = JSON.parse(responseText);
-        if (response.success) {
-            // После успешной отправки можно добавить сообщение в чат
-            addMessageToChat(response.message);
-            // Очищаем поле ввода
-            messageInput.value = '';
-        } else {
-            alert('Ошибка при отправке сообщения');
-        }
-    });
-});
-
-
-function addMessageToChat(message) {
-    const messagesContainer = document.querySelector('.block_messages');
-
+function createMessageBlock(messageText, isSender) {
     const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message');
-
-  
-    if (message.sender_id === user_id) {
-        messageDiv.classList.add('message_user');
+    if (isSender) {
+        messageDiv.classList.add('message', 'message_companion1'); 
     } else {
-        messageDiv.classList.add('message_companion');
+        messageDiv.classList.add('message', 'message_companion2');
     }
-
-    messageDiv.textContent = message.text;
-
+    messageDiv.textContent = messageText;
+    const messagesContainer = document.querySelector('.block_messages');
     messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+   /* createMessageBlock("Это мое сообщение", true);
+    createMessageBlock("Это сообщение от собеседника", false);*/
 }
+
+
+
 /*let chats = [];
  const inputArea = document.getElementById('input-area');
  // Отправка сообщения
